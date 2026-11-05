@@ -1,0 +1,11 @@
+{
+  "stage": "P3",
+  "passed": true,
+  "real_exception_cases": 4,
+  "host_length_cases": 8,
+  "host_fallback_causes": 15,
+  "timer_ticks_at_shutdown": 1000,
+  "tick_lines": 10,
+  "qemu_exit": 0,
+  "source_sha256": "b60261d5ddbc730e85be04b99538346b6c93581fde33895faa166921ce98207f"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "best-fit-becomes-first-fit",
+  "temporary_file": "kern/mm/best_fit_pmm.c",
+  "before": "fit_alloc_pages(n,1)",
+  "after": "fit_alloc_pages(n,0)",
+  "original_sha256": "568f0c49c7739a1e56c07a5e7f47ecff056ddc1475df2880b0897af60ed663a3",
+  "backend": "best_fit",
+  "case": 0,
+  "runner_exit_code": 1,
+  "expected_failure_observed": "selected==(pmm_manager==&best_fit_pmm_manager ? b : a)",
+  "result": "fault detected"
+}

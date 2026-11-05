@@ -1,0 +1,70 @@
+0x0000000000001000 in ?? ()
+The target architecture is set to "riscv:rv64".
+
+=== 1. Firmware parameters at physical kernel entry ===
+Hardware assisted breakpoint 1 at 0x80200000
+
+Temporary breakpoint 1, 0x0000000080200000 in ?? ()
+pc             0x80200000	0x80200000
+a0             0x0	0
+a1             0x87000000	2264924160
+satp           0x0	0
+PASS: physical entry is Bare
+
+=== 2. dtb_init after paging and BSS clearing ===
+Hardware assisted breakpoint 2 at 0xffffffffc02008ee: file kern/driver/dtb.c, line 109.
+
+Temporary breakpoint 2, dtb_init (hartid=hartid@entry=0, dtb_pa=dtb_pa@entry=2264924160) at kern/driver/dtb.c:109
+109	    assert(dtb_pa>=DRAM_BASE && dtb_pa<=platform_end-40 && !(dtb_pa&7));
+hartid = 0
+dtb_pa = 2264924160
+pc             0xffffffffc02008ee	0xffffffffc02008ee <dtb_init>
+satp           0x8000000000080207	-9223372036854251001
+PASS: DTB physical argument preserved
+PASS: DTB parser executes under Sv39
+DTB_PA=0x87000000 DTB_KVA=0xffffffffc7000000
+0xffffffffc7000000:	0xd0	0x0d	0xfe	0xed	0x00	0x00	0x13	0x22
+0xffffffffc7000008:	0x00	0x00	0x00	0x38	0x00	0x00	0x0e	0x18
+0xffffffffc7000010:	0x00	0x00	0x00	0x28	0x00	0x00	0x00	0x11
+0xffffffffc7000018:	0x00	0x00	0x00	0x10	0x00	0x00	0x00	0x00
+0xffffffffc7000020:	0x00	0x00	0x01	0x6a	0x00	0x00	0x0d	0xe0
+
+=== 3. Native parser arguments and independent FDT inspection ===
+Hardware assisted breakpoint 3 at 0xffffffffc02001a6: file kern/driver/dtb.c, line 30.
+
+Temporary breakpoint 3, dtb_parse (blob=blob@entry=0xffffffffc7000000, available=2097152, out=out@entry=0xffffffffc0208010 <memory>) at kern/driver/dtb.c:30
+30	    if (!b || !out || available<40 || be32(b)!=0xd00dfeed) return -1;
+blob = 0xffffffffc7000000
+available = 2097152
+out = 0xffffffffc0208010 <memory>
+PASS: parser reads the high direct-map address
+FDT magic=0xd00dfeed totalsize=4898 version=17 last_comp_version=16
+offsets: struct=0x38 strings=0xe18 reservations=0x28 sizes: struct=3552 strings=362
+PASS: FDT header and parser bound agree
+memory node=memory@80000000 parent address-cells=2 size-cells=2 reg_length=16
+reg bytes=00 00 00 00 80 00 00 00 00 00 00 00 08 00 00 00
+decoded RAM base=0x80000000 size=0x8000000 (128 MiB) end=0x88000000
+PASS: observed one QEMU RAM bank
+0xffffffffc020093c in dtb_init (hartid=hartid@entry=0, dtb_pa=dtb_pa@entry=2264924160) at kern/driver/dtb.c:112
+112	    assert(dtb_parse((void *)(dtb_pa+KERNEL_VA_PA_OFFSET),available,&memory)==0);
+Value returned is $1 = 0
+PASS: native dtb_parse returned success
+native result base=0x80000000 size=0x8000000
+PASS: native parser agrees with independently decoded reg
+
+=== 4. PMM layout after page_init ===
+Hardware assisted breakpoint 4 at 0xffffffffc0202652: file kern/mm/selftest.c, line 220.
+
+Temporary breakpoint 4, run_selftests () at kern/mm/selftest.c:220
+220	    cprintf("SELFTEST: self-written B tests; not course grading\n");
+$2 = 0x80000
+$3 = 0x88000
+$4 = 56
+$5 = 0xffffffffc0251000
+$6 = 0x80411000
+$7 = 0x88000000
+PASS: managed_end=min(detected_end,PHYSTOP), page aligned
+PASS: descriptor storage excluded from free range
+DETECTED_MiB=128 MANAGED_MiB=128 DESCRIPTORS=32768 FREE_PAGES=31727
+LAB2 DTB DEBUG CHECKS PASSED
+[Inferior 1 (process 1) detached]

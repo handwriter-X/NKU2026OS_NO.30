@@ -53,4 +53,4 @@ SELFTEST: self-written B tests; not course grading
 [EXPECT PANIC] buddy-interior
 
 [PANIC] kern/mm/buddy_pmm.c:43: PageAllocated(base) && base->alloc_span && base->requested==n
-qemu-system-riscv64: terminating on signal 15 from pid 51 (python3)
+qemu-system-riscv64: terminating on signal 15 from pid 5247 (python3)

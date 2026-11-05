@@ -53,4 +53,4 @@ SELFTEST: self-written B tests; not course grading
 [EXPECT PANIC] reserved-release
 
 [PANIC] kern/mm/pmm.c:39: pa>=free_begin && n<=(managed_end-pa)/PGSIZE
-qemu-system-riscv64: terminating on signal 15 from pid 51 (python3)
+qemu-system-riscv64: terminating on signal 15 from pid 5247 (python3)

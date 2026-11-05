@@ -53,4 +53,4 @@ SELFTEST: self-written B tests; not course grading
 [EXPECT PANIC] object-interior
 
 [PANIC] kern/mm/slub.c:82: (offset-HEADER_SIZE)%s->unit==0
-qemu-system-riscv64: terminating on signal 15 from pid 51 (python3)
+qemu-system-riscv64: terminating on signal 15 from pid 5247 (python3)

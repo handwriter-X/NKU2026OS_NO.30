@@ -1,0 +1,38 @@
+{
+  "memory": "256M",
+  "qemu_command": [
+    "qemu-system-riscv64",
+    "-machine",
+    "virt",
+    "-m",
+    "256M",
+    "-display",
+    "none",
+    "-monitor",
+    "none",
+    "-bios",
+    "default",
+    "-serial",
+    "file:/mnt/e/\u684c\u9762/OSLab/lab2/report/evidence/dtb-256M/qemu.log",
+    "-kernel",
+    "/mnt/e/\u684c\u9762/OSLab/lab2/code/bin/best_fit/0/ucore.img",
+    "-gdb",
+    "tcp:127.0.0.1:45111",
+    "-S"
+  ],
+  "gdb_command": [
+    "gdb-multiarch",
+    "-q",
+    "-nx",
+    "-batch",
+    "/mnt/e/\u684c\u9762/OSLab/lab2/code/bin/best_fit/0/kernel",
+    "-ex",
+    "target remote 127.0.0.1:45111",
+    "-x",
+    "/mnt/e/\u684c\u9762/OSLab/lab2/report/tools/dtb.gdb"
+  ],
+  "sha256": {
+    "gdb.log": "8ae70871efaba9366012125a95c8fcae240e010a96b0cb1a7559a62df0544371",
+    "qemu.log": "afe1cc63a0b3a3dfb407370d0d278d0b8c3f2e6f51fcbd0d949dbd867665c667"
+  }
+}

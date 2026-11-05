@@ -56,4 +56,4 @@ SELFTEST: self-written B tests; not course grading
 [PASS] SLUB size boundaries, 16-byte alignment, large objects and data isolation
 [PASS] SLUB multiple slabs, interleaved free/reuse, empty-page return and OOM
 LAB2 B SELFTESTS PASSED: buddy_pmm_manager
-qemu-system-riscv64: terminating on signal 15 from pid 3388 (python3)
+qemu-system-riscv64: terminating on signal 15 from pid 4809 (python3)

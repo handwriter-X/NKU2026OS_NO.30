@@ -3,7 +3,11 @@
 已集成 A 的 Sv39 启动分页和 B 的三种页分配器/简化 SLUB；C 完成集成回归、实际 QEMU 源码双 GDB 调试和报告汇总。
 
 - [整合实验报告](report/report.md)
+- [本次报告补证：三容量 DTB 调试与测试故障注入](report/evidence/README.md)
 - [编译与复现说明](code/README.md)
+- [完整操作流程：从运行到双 GDB 调试](report/操作流程.md)
+- [答辩知识点：截图问题、公式与 C 分工](report/答辩知识点.md)
+- [答辩优先阅读：从启动到分配、访问与回收的完整流程](report/答辩速记.md)
 - [C 对 A/B 完整性的核查](report/review-ab.md)
 - [C 的 QEMU 页表/TLB 调试记录与截图](report/gdb-mmu.md)
 - [测试记录](report/testing.md)

@@ -1,0 +1,250 @@
+{
+  "description": "All new figures and their exact sources",
+  "figures": [
+    {
+      "image": "report/images/01-execution.png",
+      "type": "source-based schematic, not runtime evidence",
+      "width": 542,
+      "height": 919,
+      "sha256": "71c19c46ca96b5ff139a5fdbbb3dcbaeba00da5d26e3cf2f3ceda1de4d30b58e",
+      "sources": [
+        {
+          "path": "report/images/01-execution.dot",
+          "sha256": "b371e9d2686f654637df562b07555ea919fb1d5d091f776275830adf55368b88"
+        }
+      ]
+    },
+    {
+      "image": "report/images/02-dtb-flow.png",
+      "type": "source-based schematic, not runtime evidence",
+      "width": 973,
+      "height": 858,
+      "sha256": "b25e945f5517fb0b520dc366461de5d0c0763a66e1b542c9e6505d4018982905",
+      "sources": [
+        {
+          "path": "report/images/02-dtb-flow.dot",
+          "sha256": "2769b231b7dbef01b78e19d11ac82e102e8ac90fabc28726540e52feb472cdad"
+        }
+      ]
+    },
+    {
+      "image": "report/images/03-memory-layout.png",
+      "type": "source-based schematic, not runtime evidence",
+      "width": 816,
+      "height": 582,
+      "sha256": "408c9b1271506d2521aa59c8bfb046159281729e848c6f0c03630bcd88ac2342",
+      "sources": [
+        {
+          "path": "report/images/03-memory-layout.dot",
+          "sha256": "bbf5c1b7de8f9df167953b4b814e7534551a702fe897400a7e6de8476c676120"
+        }
+      ]
+    },
+    {
+      "image": "report/images/04-allocation.png",
+      "type": "source-based schematic, not runtime evidence",
+      "width": 539,
+      "height": 764,
+      "sha256": "81512b02d6e5888ce134c0cc6e2d49f9e0e66cd1205053abdc2758bc7c4c5c59",
+      "sources": [
+        {
+          "path": "report/images/04-allocation.dot",
+          "sha256": "138f15317e5718cf6d4e76d579a37ef21800249a53c2769c43ab03ce1ba839af"
+        }
+      ]
+    },
+    {
+      "image": "report/images/05-test-design.png",
+      "type": "source-based schematic, not runtime evidence",
+      "width": 1369,
+      "height": 632,
+      "sha256": "069a01bc5721fe5f2b300dcd4581f08e2d9be1c78ad3f908737ec617d974e527",
+      "sources": [
+        {
+          "path": "report/images/05-test-design.dot",
+          "sha256": "b97c5e932f1335117b3e1f6339bf61c09a65061bce058868b86b6bf44edf00b0"
+        }
+      ]
+    },
+    {
+      "image": "report/images/06-mmu.png",
+      "type": "source-based schematic, not runtime evidence",
+      "width": 626,
+      "height": 864,
+      "sha256": "80501fa4ce92ea5848a5610f2720450bdf802fb97b0f156137346e598772611b",
+      "sources": [
+        {
+          "path": "report/images/06-mmu.dot",
+          "sha256": "6408a86d736d8b4ae5ae90e17318d16d08ab6446049dc57a28b0d7c3f40c6ee7"
+        }
+      ]
+    },
+    {
+      "image": "report/images/07-dtb-debug.png",
+      "type": "attributed log/JSON figure, not terminal screenshot",
+      "width": 1280,
+      "height": 982,
+      "sha256": "8730c4146f649758b8fa42705c3952e1649f50e266aee0ea547037aef0470d0e",
+      "sources": [
+        {
+          "path": "report/evidence/dtb-128M/gdb.log",
+          "sha256": "e773df2412667f8b75c73742b7bf54bf2d9f6ecef151273be445d8f7acf8a549",
+          "selected_line_numbers": [
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            35,
+            37,
+            41,
+            42,
+            44,
+            45,
+            46,
+            50,
+            51,
+            52,
+            53,
+            68,
+            69
+          ]
+        }
+      ]
+    },
+    {
+      "image": "report/images/08-dtb-capacities.png",
+      "type": "attributed log/JSON figure, not terminal screenshot",
+      "width": 1280,
+      "height": 885,
+      "sha256": "5ebeb95ab1bf1ba22d06ac8cd69ea3173b86db6fcd5b69d42784c44e58bd2a31",
+      "sources": [
+        {
+          "path": "report/evidence/dtb-64M/qemu.log",
+          "sha256": "a35f764626e598ec3c390e6694a3df962adb6c6b5dfbed37ccd01e19bcdebd93",
+          "selected_line_numbers": [
+            43,
+            45,
+            46,
+            47
+          ]
+        },
+        {
+          "path": "report/evidence/dtb-128M/qemu.log",
+          "sha256": "b98e585bbc82fed028c3496863d85cc39dddd2a68914c70465d25ab5f96d0544",
+          "selected_line_numbers": [
+            43,
+            45,
+            46,
+            47
+          ]
+        },
+        {
+          "path": "report/evidence/dtb-256M/qemu.log",
+          "sha256": "afe1cc63a0b3a3dfb407370d0d278d0b8c3f2e6f51fcbd0d949dbd867665c667",
+          "selected_line_numbers": [
+            43,
+            45,
+            46,
+            47
+          ]
+        }
+      ]
+    },
+    {
+      "image": "report/images/09-normal-selftest.png",
+      "type": "attributed log/JSON figure, not terminal screenshot",
+      "width": 1280,
+      "height": 766,
+      "sha256": "b21649def474605d2478d1f3936d1a018379334ea71660019ae693bd3dabfaee",
+      "sources": [
+        {
+          "path": "report/evidence/dtb-128M/qemu.log",
+          "sha256": "b98e585bbc82fed028c3496863d85cc39dddd2a68914c70465d25ab5f96d0544",
+          "selected_line_numbers": [
+            40,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58
+          ]
+        }
+      ]
+    },
+    {
+      "image": "report/images/10-regression-matrix.png",
+      "type": "attributed log/JSON figure, not terminal screenshot",
+      "width": 1280,
+      "height": 920,
+      "sha256": "fd0432167edba9ed2b74c918f5aa47521dcb688a811d11031666197199ab4e97",
+      "sources": [
+        {
+          "path": "code/evidence/selftest/summary-all.json",
+          "sha256": "c4e0b5db9c4b546fa3a843c6b6c99bb791e49127cabf258cd3773352161c0723",
+          "selected_line_numbers": []
+        },
+        {
+          "path": "code/evidence/integration/summary.json",
+          "sha256": "5c8cd4daded48ad3521d62c355814e03e2c9a1bf8df111e1f2c5db35389fb5cb",
+          "selected_line_numbers": []
+        }
+      ]
+    },
+    {
+      "image": "report/images/11-test-sensitivity.png",
+      "type": "attributed log/JSON figure, not terminal screenshot",
+      "width": 1280,
+      "height": 850,
+      "sha256": "fe7fe5fff9ad73a57d441f30d20e49da3f96b93fab44863b4ef21680b89f5fc7",
+      "sources": [
+        {
+          "path": "report/evidence/test-sensitivity/best-fit-becomes-first-fit/guest.log",
+          "sha256": "a079ad2cf7567162038b276c5a10fb8dc6f9dc73ddea47703dcae47f88952ad3",
+          "selected_line_numbers": [
+            55
+          ]
+        },
+        {
+          "path": "report/evidence/test-sensitivity/buddy-counts-request-not-span/guest.log",
+          "sha256": "a4ea345414f4e1760ac40a43d8279bc3eb38374ef1e6523af2206dc23e4a3fba",
+          "selected_line_numbers": [
+            55
+          ]
+        },
+        {
+          "path": "report/evidence/test-sensitivity/slub-keeps-empty-pages/guest.log",
+          "sha256": "3c8236b8e459562f9462b841c40247fd4f4d3950d4fc90d50c76522b4f67d2ec",
+          "selected_line_numbers": [
+            58
+          ]
+        },
+        {
+          "path": "report/evidence/test-sensitivity/wrong-panic-is-not-success/guest.log",
+          "sha256": "73113cbd93af25ad0d59a5d4de073f5d597dcd82719ad03877819e4f251ca6c4",
+          "selected_line_numbers": [
+            53,
+            55
+          ]
+        },
+        {
+          "path": "report/evidence/test-sensitivity/summary.json",
+          "sha256": "05f8e195a8c88322394e77ae09def393e6d60654f4ca4103eb9ce2a3a1567dab",
+          "purpose": "runner exit codes and fault-detection results"
+        }
+      ]
+    }
+  ]
+}

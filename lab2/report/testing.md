@@ -1,5 +1,7 @@
 # C 测试记录
 
+> 2026-10-26 报告补证：新增三个容量的 DTB 专项 GDB 和四项临时副本故障注入，详见[补证说明](evidence/README.md)。前者均继续运行到正常自测完成，后者均被原 runner 以预定原因拒绝。原有完整矩阵和 QEMU 源码日志保留；本次补证不冒充重新运行全部历史场景。测试改动的合理性、有效性及限制已集中重写到[主报告第五节](report.md#五测试与验证)。
+
 日期：2026-10-25。所有检查为本项目自建验证，课程原评分脚本缺失。完整环境见 [environment.txt](../code/evidence/integration/boot-best_fit-128M/environment.txt)。
 
 ## 1. 命令与结果

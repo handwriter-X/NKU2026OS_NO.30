@@ -1,0 +1,42 @@
+FAIL: best_fit-128M-case0: selftest failed
+0 Name              : root
+Domain0 Boot HART         : 0
+Domain0 HARTs             : 0*
+Domain0 Region00          : 0x0000000080000000-0x000000008001ffff ()
+Domain0 Region01          : 0x0000000000000000-0xffffffffffffffff (R,W,X)
+Domain0 Next Address      : 0x0000000080200000
+Domain0 Next Arg1         : 0x0000000087000000
+Domain0 Next Mode         : S-mode
+Domain0 SysReset          : yes
+
+Boot HART ID              : 0
+Boot HART Domain          : root
+Boot HART ISA             : rv64imafdcsu
+Boot HART Features        : scounteren,mcounteren,time
+Boot HART PMP Count       : 16
+Boot HART PMP Granularity : 4
+Boot HART PMP Address Bits: 54
+Boot HART MHPM Count      : 0
+Boot HART MHPM Count      : 0
+Boot HART MIDELEG         : 0x0000000000000222
+Boot HART MEDELEG         : 0x000000000000b109
+(THU.CST) os is loading ...
+
+
+DTB: hart=0 pa=0x0000000087000000 RAM=[0x0000000080000000,0x0000000088000000) size=128 MiB
+memory management: best_fit_pmm_manager (Sv39 integrated)
+MANAGED: [0x0000000080000000,0x0000000088000000) 128 MiB
+LAYOUT: descriptors=[0x0000000080251000,0x0000000080411000) Page=56 bytes
+FREE: [0x0000000080411000,0x0000000088000000) pages=31727
+satp virtual address: 0xffffffffc0207000
+satp physical address: 0x0000000080207000
+SELFTEST: self-written B tests; not course grading
+[PASS] FDT valid fixture, magic, truncation, bounds, property length, overflow
+[PASS] layout, reservations, address roundtrips, oversized allocation
+[PASS] fit policy distinction, split, fragmentation failure, exact fit
+[PASS] left/right/both-neighbor coalescing and partial-page releases
+[PASS] seed=0x2414067: 1200 random operations, independent bitmap and data isolation
+
+[PANIC] kern/mm/selftest.c:166: nr_free_pages()==total
+qemu-system-riscv64: terminating on signal 15 from pid 5852 (python3)
+

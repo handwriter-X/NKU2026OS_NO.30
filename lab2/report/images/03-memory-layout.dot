@@ -1,0 +1,11 @@
+digraph G {
+ graph [rankdir=TB, bgcolor="white", pad=.25, nodesep=.3, ranksep=.2, fontname="Microsoft YaHei", label="128 MiB 示例的物理布局（区块高度不按比例）", labelloc=t, fontsize=21];
+ node [shape=box, style=filled, color="#7896b2", fontname="Microsoft YaHei", fontsize=15, width=8, margin=".15,.12"];
+ edge [color="#496b8b"];
+ fw [label="0x80000000 → 0x80200000\n固件及低地址预留范围", fillcolor="#f6e7dd"];
+ kernel [label="0x80200000 → 对齐后的内核 end\n代码、数据、栈、启动页表、自测静态数组", fillcolor="#f6e7dd"];
+ descriptors [label="0x80251000 → 0x80411000\n32768 × 56 = 0x1c0000 字节的 Page 描述符", fillcolor="#fff1ce"];
+ free [label="0x80411000 → 0x88000000\n31727 个完整空闲物理页\n交给 init_memmap", fillcolor="#e8f3e9"];
+ upper [label="0x88000000：当前 PHYSTOP\n256 MiB 时探测到 0x90000000，但其上半段不纳入管理", fillcolor="#edf4fb"];
+ fw -> kernel -> descriptors -> free -> upper;
+}

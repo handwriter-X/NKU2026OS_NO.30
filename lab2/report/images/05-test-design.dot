@@ -1,0 +1,16 @@
+digraph G {
+ graph [rankdir=TB, bgcolor="white", pad=.25, nodesep=.35, ranksep=.4, fontname="Microsoft YaHei", label="测试如何形成相互校验的证据", labelloc=t, fontsize=22];
+ node [shape=box, style="rounded,filled", fillcolor="#edf4fb", color="#7896b2", fontname="Microsoft YaHei", fontsize=15, margin=".18,.12"];
+ edge [color="#496b8b", fontname="Microsoft YaHei", fontsize=12];
+ runner [label="Makefile → Python runner\n隔离 PMM / TEST_CASE 的构建产物"];
+ native [label="内核自测\n选择结果、空闲数、布局、数据和独立占用位图"];
+ gdb [label="客户机 GDB\nsatp / 根表 / DTB / 描述符 / 启动次序"];
+ host [label="宿主 GDB\nQEMU 实际翻译与软件 TLB 分支"];
+ verdict [label="runner 判定\n正确管理器 + 成功标记 + 布局数值\n负面场景：EXPECT + 指定断言，拒绝错误 panic"];
+ fault [label="临时副本故障注入\n错误策略 / 计数 / 回收 / panic → runner 必须失败", fillcolor="#fff0e9"];
+ evidence [label="原始日志 / 汇总 JSON / 来源清单\n通过有限验证 ≠ 通过尚未取得的课程原测试", fillcolor="#e8f3e9"];
+ runner -> native; runner -> gdb; runner -> host;
+ native -> verdict; gdb -> evidence; host -> evidence;
+ fault -> verdict [label="反向验证"];
+ verdict -> evidence;
+}

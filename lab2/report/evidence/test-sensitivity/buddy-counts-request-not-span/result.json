@@ -1,0 +1,12 @@
+{
+  "name": "buddy-counts-request-not-span",
+  "temporary_file": "kern/mm/buddy_pmm.c",
+  "before": "available-=span",
+  "after": "available-=n",
+  "original_sha256": "fcdfbbba5113f86d1e388c2b7f0a675aa675a566fdd94faf7dd6e223af6f488e",
+  "backend": "buddy",
+  "case": 0,
+  "runner_exit_code": 1,
+  "expected_failure_observed": "nr_free_pages()==total-span",
+  "result": "fault detected"
+}

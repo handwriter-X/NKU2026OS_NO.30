@@ -1,0 +1,54 @@
+{
+  "complete": true,
+  "count": 4,
+  "results": [
+    {
+      "name": "best-fit-becomes-first-fit",
+      "temporary_file": "kern/mm/best_fit_pmm.c",
+      "before": "fit_alloc_pages(n,1)",
+      "after": "fit_alloc_pages(n,0)",
+      "original_sha256": "568f0c49c7739a1e56c07a5e7f47ecff056ddc1475df2880b0897af60ed663a3",
+      "backend": "best_fit",
+      "case": 0,
+      "runner_exit_code": 1,
+      "expected_failure_observed": "selected==(pmm_manager==&best_fit_pmm_manager ? b : a)",
+      "result": "fault detected"
+    },
+    {
+      "name": "buddy-counts-request-not-span",
+      "temporary_file": "kern/mm/buddy_pmm.c",
+      "before": "available-=span",
+      "after": "available-=n",
+      "original_sha256": "fcdfbbba5113f86d1e388c2b7f0a675aa675a566fdd94faf7dd6e223af6f488e",
+      "backend": "buddy",
+      "case": 0,
+      "runner_exit_code": 1,
+      "expected_failure_observed": "nr_free_pages()==total-span",
+      "result": "fault detected"
+    },
+    {
+      "name": "slub-keeps-empty-pages",
+      "temporary_file": "kern/mm/slub.c",
+      "before": "if (!s->used) {",
+      "after": "if (0 && !s->used) {",
+      "original_sha256": "9105576d7e2a745ef0d8a70527cc7a7374036f27955971f204b33648b3495f55",
+      "backend": "best_fit",
+      "case": 0,
+      "runner_exit_code": 1,
+      "expected_failure_observed": "nr_free_pages()==total",
+      "result": "fault detected"
+    },
+    {
+      "name": "wrong-panic-is-not-success",
+      "temporary_file": "kern/mm/selftest.c",
+      "before": "kfree((void *)0x1000);",
+      "after": "alloc_pages(0);",
+      "original_sha256": "e148a4fc659960a0307b945750a971c65c1d914ae87f4123ee592769b4f6f33a",
+      "backend": "best_fit",
+      "case": 10,
+      "runner_exit_code": 1,
+      "expected_failure_observed": "unexpected panic",
+      "result": "fault detected"
+    }
+  ]
+}

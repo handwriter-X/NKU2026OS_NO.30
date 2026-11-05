@@ -1,0 +1,12 @@
+{
+  "name": "slub-keeps-empty-pages",
+  "temporary_file": "kern/mm/slub.c",
+  "before": "if (!s->used) {",
+  "after": "if (0 && !s->used) {",
+  "original_sha256": "9105576d7e2a745ef0d8a70527cc7a7374036f27955971f204b33648b3495f55",
+  "backend": "best_fit",
+  "case": 0,
+  "runner_exit_code": 1,
+  "expected_failure_observed": "nr_free_pages()==total",
+  "result": "fault detected"
+}

@@ -1,0 +1,15 @@
+digraph G {
+ graph [rankdir=TB, bgcolor="white", pad=.25, nodesep=.35, ranksep=.4, fontname="Microsoft YaHei", label="Fit：选块策略与回收合并是两件事", labelloc=t, fontsize=22];
+ node [shape=box, style="rounded,filled", fillcolor="#edf4fb", color="#7896b2", fontname="Microsoft YaHei", fontsize=15, margin=".2,.13"];
+ edge [color="#496b8b", fontname="Microsoft YaHei", fontsize=12];
+ initial [label="按地址排列的空闲块\n低地址 A：8 页  |  已分配保护页  |  高地址 B：4 页"];
+ first [label="First-Fit 申请 3 页\n选 A，余 5 页"];
+ best [label="Best-Fit 申请 3 页\n选 B，余 1 页"];
+ validate [label="释放前：完整验证区间的所有权\n释放后：按地址插回空闲链表"];
+ left [label="前块末端 = 当前块起点？\n是：合并，当前块头改为前块"];
+ right [label="当前块末端 = 后块起点？\n是：合并，摘除旧后块头"];
+ count [label="空闲页数只增加本次归还页数\n合并不创造物理页", fillcolor="#e8f3e9"];
+ initial -> first; initial -> best;
+ first -> validate; best -> validate;
+ validate -> left -> right -> count;
+}

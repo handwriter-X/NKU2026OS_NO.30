@@ -1,0 +1,16 @@
+digraph G {
+ graph [rankdir=TB, bgcolor="white", pad=.25, nodesep=.35, ranksep=.35, fontname="Microsoft YaHei", label="DTB：先获得布局，再决定管理范围", labelloc=t, fontsize=22];
+ node [shape=box, style="rounded,filled", fillcolor="#edf4fb", color="#7896b2", fontname="Microsoft YaHei", fontsize=15, margin=".2,.13"];
+ edge [color="#496b8b", fontname="Microsoft YaHei", fontsize=12];
+ arg [label="a1：DTB PA\n不能将它当作 RAM 大小或 Page 指针"];
+ access [label="加高地址偏移，得到 DTB KVA\n使用启动 1 GiB 映射，不依赖尚未初始化的 KADDR"];
+ header [label="检查 FDT 头、大端字段、块边界\n保留表终止项、字符串、token、嵌套深度"];
+ cells [label="父节点 cells 决定 reg 编码\n128M 示例：2 个地址 cell + 2 个大小 cell"];
+ ram [label="reg → base=0x80000000\nsize=0x08000000 → detected_end=0x88000000"];
+ cap [label="managed_end = 向下页对齐(min(detected_end, PHYSTOP))"];
+ desc [label="内核 end 后放 Page 数组\n所有描述符先 reserved，再登记完整空闲页"];
+ fail [label="信息无效：返回 -1，启动断言失败\n没有用固定容量伪装探测成功", fillcolor="#fff0e9"];
+ arg -> access -> header -> cells -> ram -> cap -> desc;
+ header -> fail [label="校验失败"];
+ cells -> fail [label="无效 / 非连续 RAM"];
+}

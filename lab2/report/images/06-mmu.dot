@@ -1,0 +1,16 @@
+digraph G {
+ graph [rankdir=TB, bgcolor="white", pad=.25, nodesep=.35, ranksep=.35, fontname="Microsoft YaHei", label="QEMU 6.2.0：一次高地址取指的翻译", labelloc=t, fontsize=22];
+ node [shape=box, style="rounded,filled", fillcolor="#edf4fb", color="#7896b2", fontname="Microsoft YaHei", fontsize=15, margin=".18,.12"];
+ edge [color="#496b8b", fontname="Microsoft YaHei", fontsize=12];
+ va [label="客户机 VA = 0xffffffffc0200032"];
+ tlb [label="软件 TLB 查询\n比较 addr_code 与 VA 页标记"];
+ walk [label="miss → riscv_cpu_tlb_fill → get_physical_address\nsatp.MODE=8，root PA=0x80207000"];
+ pte [label="VPN[2]=511\nPTE PA=0x80207ff8，PTE=0x200000cf"];
+ leaf [label="根层 R/W/X 叶子 → 1 GiB 大页\n一次循环结束，PA=0x80200032"];
+ fill [label="tlb_set_page\n本次软件缓存回填 4 KiB 项"];
+ access [label="返回取指 / 访问 RAM\n命中时跳过本次查表与回填", fillcolor="#e8f3e9"];
+ va -> tlb;
+ tlb -> walk [label="miss"];
+ tlb -> access [label="hit"];
+ walk -> pte -> leaf -> fill -> access;
+}

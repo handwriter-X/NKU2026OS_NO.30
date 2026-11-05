@@ -53,4 +53,4 @@ SELFTEST: self-written B tests; not course grading
 [EXPECT PANIC] descriptor-outside
 
 [PANIC] kern/mm/pmm.c:29: index<npage-nbase
-qemu-system-riscv64: terminating on signal 15 from pid 51 (python3)
+qemu-system-riscv64: terminating on signal 15 from pid 5247 (python3)

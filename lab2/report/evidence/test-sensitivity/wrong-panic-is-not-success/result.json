@@ -1,0 +1,12 @@
+{
+  "name": "wrong-panic-is-not-success",
+  "temporary_file": "kern/mm/selftest.c",
+  "before": "kfree((void *)0x1000);",
+  "after": "alloc_pages(0);",
+  "original_sha256": "e148a4fc659960a0307b945750a971c65c1d914ae87f4123ee592769b4f6f33a",
+  "backend": "best_fit",
+  "case": 10,
+  "runner_exit_code": 1,
+  "expected_failure_observed": "unexpected panic",
+  "result": "fault detected"
+}

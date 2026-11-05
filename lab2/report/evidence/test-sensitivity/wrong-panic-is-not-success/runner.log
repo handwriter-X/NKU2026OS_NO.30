@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/tmp/lab2-negative-control-xp69276d/code/tools/run_tests.py", line 73, in run
+    raise RuntimeError(f"{name}: unexpected panic: {panic_line}")
+RuntimeError: best_fit-128M-case10: unexpected panic: [PANIC] kern/mm/pmm.c:60: n>0

@@ -1,0 +1,14 @@
+digraph G {
+ graph [rankdir=TB, bgcolor="white", pad=.25, nodesep=.3, ranksep=.35, fontname="Microsoft YaHei", label="Lab2：从启动参数到可验证的分配器", labelloc=t, fontsize=22];
+ node [shape=box, style="rounded,filled", fillcolor="#edf4fb", color="#7896b2", fontname="Microsoft YaHei", fontsize=15, margin=".2,.12"];
+ edge [color="#496b8b", arrowsize=.7, fontname="Microsoft YaHei", fontsize=12];
+ boot [label="QEMU / OpenSBI\na0 = hart ID，a1 = DTB 物理地址"];
+ paging [label="entry.S：根表 PA → satp → sfence.vma\n低地址恒等映射过渡 → 高地址 kern_init"];
+ dtb [label="清 BSS → dtb_init / dtb_parse\n读取 memory/reg，得到 RAM base / size"];
+ pmm [label="pmm_init：选择管理器 → init\npage_init：上界、描述符、预留、整页对齐"];
+ map [label="init_memmap：登记完整可用页"];
+ pages [label="页级分配：First-Fit / Best-Fit / Buddy\nalloc_pages / free_pages"];
+ slub [label="对象级分配：简化 SLUB\nkmalloc / kfree"];
+ verify [label="交叉验证\n布局 / 策略 / 位图 / 数据 / GDB / QEMU 源码", fillcolor="#e8f3e9"];
+ boot -> paging -> dtb -> pmm -> map -> pages -> slub -> verify;
+}
